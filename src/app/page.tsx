@@ -11,11 +11,23 @@ export default function Home() {
           <div className="w-1/2 min-w-0">
             <Image src="/insurance.png" alt="Insurance" width={600} height={400} className="rounded-lg shadow-md w-full h-auto object-cover" />
           </div>
-          <div className="w-1/2 min-w-0 flex flex-col justify-center gap-2">
-            <p>Motor Insurance</p>
-            <p>Health Insurance</p>
-            <p>Life Insurance</p>
-            <p>Travel Insurance</p>
+          <div className="w-1/2 min-w-0 grid grid-cols-2 gap-6">
+            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+              <Image src="/car.png" alt="Car Insurance" width={60} height={60} className="mx-auto mb-4" />
+              <p className="text-lg font-semibold text-gray-800">Motor Insurance</p>
+            </div>
+            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+              <Image src="/health.png" alt="Health Insurance" width={60} height={60} className="mx-auto mb-4" />
+              <p className="text-lg font-semibold text-gray-800">Health Insurance</p>
+            </div>
+            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+              <Image src="/travel.png" alt="Travel Insurance" width={60} height={60} className="mx-auto mb-4" />
+              <p className="text-lg font-semibold text-gray-800">Travel Insurance</p>
+            </div>
+            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+              <Image src="/life.png" alt="Life Insurance" width={60} height={60} className="mx-auto mb-4" />
+              <p className="text-lg font-semibold text-gray-800">Life Insurance</p>
+            </div>
           </div>
         </div>
       </main>
