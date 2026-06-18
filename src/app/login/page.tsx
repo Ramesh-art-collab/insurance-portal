@@ -1,14 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [showOtpModal, setShowOtpModal] = useState(false);
   const [otpValues, setOtpValues] = useState(Array(6).fill(""));
+  const otpRefs = useRef<Array<HTMLInputElement | null>>([]);
 
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setShowOtpModal(true);
+    setOtpValues(Array(6).fill(""));
+    setTimeout(() => otpRefs.current[0]?.focus(), 0);
   };
 
   const handleOtpChange = (index: number, value: string) => {
@@ -16,6 +20,9 @@ export default function LoginPage() {
     const updated = [...otpValues];
     updated[index] = value;
     setOtpValues(updated);
+    if (value && index < otpRefs.current.length - 1) {
+      otpRefs.current[index + 1]?.focus();
+    }
   };
 
   const closeModal = () => {
@@ -58,6 +65,12 @@ export default function LoginPage() {
           >
             Login
           </button>
+          <p className="text-sm text-gray-600 mt-4 text-center">
+            or
+          </p>
+          <Link href="/guest" className="text-blue-600 hover:text-blue-800 mt-4 text-center align-middle block">
+            Continue as Guest
+          </Link>
         </form>
       </div>
 
@@ -83,11 +96,20 @@ export default function LoginPage() {
               {otpValues.map((value, index) => (
                 <input
                   key={index}
+                  ref={(el) => (otpRefs.current[index] = el)}
                   type="text"
                   inputMode="numeric"
                   maxLength={1}
                   value={value}
                   onChange={(event) => handleOtpChange(index, event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Backspace" && !otpValues[index] && index > 0) {
+                      otpRefs.current[index - 1]?.focus();
+                      const updated = [...otpValues];
+                      updated[index - 1] = "";
+                      setOtpValues(updated);
+                    }
+                  }}
                   className="h-14 w-full rounded-2xl border border-slate-300 bg-white text-center text-2xl font-semibold text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
                 />
               ))}
