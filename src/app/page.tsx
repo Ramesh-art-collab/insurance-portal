@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -12,22 +13,22 @@ export default function Home() {
             <Image src="/insurance.png" alt="Insurance" width={600} height={400} className="rounded-lg shadow-md w-full h-auto object-cover" />
           </div>
           <div className="w-1/2 min-w-0 grid grid-cols-2 gap-6">
-            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+            <Link href="/policies/motor" className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-2xl shadow-slate-900/20 text-center hover:shadow-black/40 transition-shadow duration-300">
               <Image src="/car.png" alt="Car Insurance" width={60} height={60} className="mx-auto mb-4" />
               <p className="text-lg font-semibold text-gray-800">Motor Insurance</p>
-            </div>
-            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+            </Link>
+            <Link href="/policies/health" className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-2xl shadow-slate-900/20 text-center hover:shadow-black/40 transition-shadow duration-300">
               <Image src="/health.png" alt="Health Insurance" width={60} height={60} className="mx-auto mb-4" />
               <p className="text-lg font-semibold text-gray-800">Health Insurance</p>
-            </div>
-            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+            </Link>
+            <Link href="/policies/travel" className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-2xl shadow-slate-900/20 text-center hover:shadow-black/40 transition-shadow duration-300">
               <Image src="/travel.png" alt="Travel Insurance" width={60} height={60} className="mx-auto mb-4" />
               <p className="text-lg font-semibold text-gray-800">Travel Insurance</p>
-            </div>
-            <div className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-sm text-center">
+            </Link>
+            <Link href="/policies/life" className="flex flex-col items-center justify-center rounded-3xl bg-white p-8 shadow-2xl shadow-slate-900/20 text-center hover:shadow-black/40 transition-shadow duration-300">
               <Image src="/life.png" alt="Life Insurance" width={60} height={60} className="mx-auto mb-4" />
               <p className="text-lg font-semibold text-gray-800">Life Insurance</p>
-            </div>
+            </Link>
           </div>
         </div>
       </main>
